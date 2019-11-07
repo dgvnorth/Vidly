@@ -5,10 +5,12 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "joi-browser": "^13.4.0",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.10",
+    "mongoose": "^5.7.8",
     "prop-types": "^15.6.2",
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.14",

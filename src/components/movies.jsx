@@ -12,7 +12,14 @@ import { Link } from 'react-router-dom';
 
 class Movies extends Component {
     state = {
-        movies: [],
+        movies: [{
+            title: 'Peli',
+            numberInStock: 2,
+            dailyRentalRate: 2,
+            genre: {
+                name: 'comedy'
+            }
+        }],
         genres: [],
         currentPage: 1,
         pageSize: 4,
@@ -23,6 +30,7 @@ class Movies extends Component {
 
     async componentDidMount() {
         const { data } = await getGenres()
+        console.log(data)
         const genres = [{ _id: '', name: 'All Genres' }, ...data];
 
         const { data: movies } = await getMovies();
@@ -85,15 +93,16 @@ class Movies extends Component {
     }
 
     render() {
-        const { length: count } = this.state.movies;
+        // const { length: count } = this.state.movies;
         const { currentPage, pageSize, genres, selectedGenre, sortColumn, searchQuery } = this.state;
         const { user } = this.props;
+        console.log('ahora', this.state.movies)
 
-        if (count === 0) return <p>There are no movies in the database.</p>
+        // if (count === 0) return <p>There are no movies in the database.</p>
 
         const { totalCount, data } = this.getPageData()
         return (
-            <React.Fragment>
+            < React.Fragment >
                 <div className='col'>
                     <div>
                         <ListGroup
@@ -123,7 +132,7 @@ class Movies extends Component {
                         currentPage={currentPage}
                         onPageChange={this.hadlePageChange} />
                 </div>
-            </React.Fragment>
+            </React.Fragment >
 
         )
 
