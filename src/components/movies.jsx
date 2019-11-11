@@ -12,14 +12,7 @@ import { Link } from 'react-router-dom';
 
 class Movies extends Component {
     state = {
-        movies: [{
-            title: 'Peli',
-            numberInStock: 2,
-            dailyRentalRate: 2,
-            genre: {
-                name: 'comedy'
-            }
-        }],
+        movies: [],
         genres: [],
         currentPage: 1,
         pageSize: 4,
@@ -30,7 +23,6 @@ class Movies extends Component {
 
     async componentDidMount() {
         const { data } = await getGenres()
-        console.log(data)
         const genres = [{ _id: '', name: 'All Genres' }, ...data];
 
         const { data: movies } = await getMovies();
